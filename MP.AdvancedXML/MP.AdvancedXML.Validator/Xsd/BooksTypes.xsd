@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified"
+           elementFormDefault="qualified"
+           targetNamespace="http://library.by/catalog"
+           xmlns="http://library.by/catalog"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:include schemaLocation="BooksExtentions.xsd"/>
+
+  <xs:complexType name="catalog">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="book" type="book" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="book">
+    <xs:sequence>
+      <xs:element name="isbn" type="isbn-format" minOccurs="0"/>
+      <xs:element name="author" type="xs:string" />
+      <xs:element name="title" type="xs:string" />
+      <xs:element name="genre" type="genre-format" />
+      <xs:element name="publisher" type="xs:string" />
+      <xs:element name="publish_date" type="en-date-format" />
+      <xs:element name="description" type="xs:string" />
+      <xs:element name="registration_date" type="en-date-format" />
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required" />
+  </xs:complexType>
+  
+</xs:schema>
